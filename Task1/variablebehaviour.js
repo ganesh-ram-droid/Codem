@@ -5,7 +5,7 @@ console.log(`Data before reassgining ${name} ,${val} , ${pi}`)
 //now trying to reassign
 name= "Ram"
 val = 20
- pi=3.1444// as it is declared as constant i can not be reassigned(TypeError: Assignment to constant variable.)
+ pi=3.1444// as it is declared as constant pi can not be reassigned(TypeError: Assignment to constant variable.)
 console.log(`Data After reassgining ${name} ,${val} , ${pi}`)
 var name ="Ganesh Ram"
 console.log(name);
