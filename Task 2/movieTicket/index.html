@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket</title>
+</head>
+<body>
+
+<button onclick="checkTicket(25, true)">Adult</button>
+<button onclick="askTeen()">Teen</button>
+<button onclick="checkTicket(10, true)">Child</button>
+
+<div id="display"></div>
+
+<script>
+let msg = document.getElementById("display");
+function checkTicket(age, hasPermission)
+{
+   //this is condition for teenage thus we need to askTeen
+    if(age >= 13 && age <= 17)
+    {
+        if(hasPermission === true)
+            msg.textContent = "Allowed";
+        else
+            msg.textContent = "Not Allowed";
+    }
+    else
+    {
+       
+        msg.textContent = "Allowed";
+    }
+}
+
+
+function askTeen()
+{
+    let permission = confirm("Do you have parent permission?");
+    checkTicket(15, permission);
+}
+</script>
+
+</body>
+</html>

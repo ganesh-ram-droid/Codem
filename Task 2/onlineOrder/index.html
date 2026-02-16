@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button  onclick="checkOrder(true,false)" >Order Now</button>
+    <button  onclick="checkOrder(false,false)" >Order Now</button>
+    <button  onclick="checkOrder(false,true)" >Order Now</button>
+    <div id="order" ></div>
+
+    <script>
+        let msg  =document.getElementById("order")
+        function checkOrder(isPaid,inStock)
+        {
+            if(isPaid===true && inStock===true)
+        {
+            msg.textContent="Order confirmed"
+        }
+        else if(isPaid===true && inStock===false )
+        {
+            msg.textContent="Order delayed"
+
+        }
+        else if(!isPaid)
+        {
+            msg.textContent="Payment Required"
+        }
+        alert(msg.textContent)
+
+
+    }
+        
+    </script>
+    
+</body>
+</html>

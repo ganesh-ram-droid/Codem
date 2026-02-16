@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Billing System</title>
+</head>
+<body>
+
+<button onclick="placeBill(false)">Regular</button>
+<button onclick="placeBill(true)">Member</button>
+<script>
+
+function placeBill(isMember)
+{
+    let amount = Number(prompt("Enter bill amount:"));
+    calculateBill(amount, isMember);
+}
+
+// Main function
+function calculateBill(billAmount, isMember)
+{
+    // Validate amount
+    if(billAmount <= 0 || isNaN(billAmount))
+    {
+        console.log("Error: Amount cannot be zero or negative");
+        return;
+    }
+    let discount = 0;
+    // Discount rules
+    if(isMember === true)
+        discount = 10;
+    else if(billAmount >= 1000)
+        discount = 5;
+    else
+        discount = 0;
+
+    // Final amount after discount
+    let finalAmount = billAmount - (billAmount * discount / 100);
+    // Gift rule
+    let gift;
+    if(finalAmount >= 1500)
+        gift = "Free Gift 🎁";
+    else
+        gift = "No Gift";
+
+    // Display details
+    console.log("Bill Amount:", billAmount);
+    console.log("Member:", isMember);
+    console.log("Discount:", discount + "%");
+    console.log("Final Amount:", finalAmount);
+    console.log("Gift:", gift);
+}
+
+</script>
+
+</body>
+</html>

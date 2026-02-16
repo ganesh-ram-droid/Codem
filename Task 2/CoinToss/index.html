@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="generateChoice('heads')">Heads</button>
+    <button onclick="generateChoice('tails')" >Tails</button>
+    <div id="msg" ></div>
+
+    <script>
+        let msg = document.getElementById("msg")
+        function generateChoice(player){
+            let arr= ["heads","tails"]
+            let random  =Math.floor(Math.random()*2)
+            let res = arr[random]
+            if(player===res)
+        {
+            msg.textContent="Player Wins "+ res
+
+        }
+        else{
+            msg.textContent="Player Loses "+ res
+        }
+        alert(
+            `Player choice ${player}\n
+            Computer Choice : ${res}\n
+            Result :${msg.textContent}
+            `
+        )
+      
+
+        }
+
+    </script>
+    
+</body>
+</html>
