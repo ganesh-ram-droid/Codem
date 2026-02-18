@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 13</title>
+</head>
+<body>
+
+<h3>Task 13</h3>
+
+Date Available:
+<input type="text" id="dateAvail" placeholder="yes / no"><br><br>
+
+User Confirmed:
+<input type="text" id="userConfirm" placeholder="yes / no"><br><br>
+
+<button onclick="
+let dateAvailable = document.getElementById('dateAvail').value;
+let userConfirmed = document.getElementById('userConfirm').value;
+checkAppointment(dateAvailable, userConfirmed);
+">Check Appointment</button>
+
+<script>
+function checkAppointment(dateAvailable, userConfirmed) {
+
+  dateAvailable = dateAvailable.toLowerCase() === "yes";
+  userConfirmed = userConfirmed.toLowerCase() === "yes";
+
+  if (!dateAvailable) {
+    alert("Appointment Rejected");
+  } 
+  else if (!userConfirmed) {
+    alert("Appointment Rejected");
+  } 
+  else {
+    alert("Appointment Confirmed");
+  }
+}
+</script>
+
+</body>
+</html>

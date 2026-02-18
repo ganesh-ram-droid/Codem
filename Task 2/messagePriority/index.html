@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 8</title>
+</head>
+<body>
+
+<h3>Task 8</h3>
+
+Message:
+<input type="text" id="msg" placeholder="Enter message"><br><br>
+
+Urgent:
+<input type="text" id="urgent" placeholder="yes / no"><br><br>
+
+<button onclick="
+let message = document.getElementById('msg').value;
+let isUrgent = document.getElementById('urgent').value;
+processMessage(message, isUrgent);
+">Process Message</button>
+
+<script>
+function processMessage(message, isUrgent) {
+
+  // validate
+  if (!message || message.trim() === '') {
+    console.log('Message cannot be empty');
+    return;
+  }
+
+  isUrgent = isUrgent.toLowerCase() === 'yes';
+
+  let hasWarningWord =
+    message.toLowerCase().includes('error') ||
+    message.toLowerCase().includes('fail');
+
+  let isHighPriority = isUrgent || hasWarningWord;
+
+  let finalMessage;
+
+  if (isHighPriority) {
+    finalMessage = "IMPORTANT: " + message.toUpperCase();
+  } else {
+    finalMessage = "INFO: " + message.toLowerCase();
+  }
+
+  console.log("Final Message:", finalMessage);
+  console.log("High Priority:", isHighPriority);
+}
+</script>
+
+</body>
+</html>

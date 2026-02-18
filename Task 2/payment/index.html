@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 15</h1>
+    Payment:
+    <input type="text" placeholder="Enter the Amount" name="" id="payment"><br>
+    Paid:
+    <input type="text" name="" placeholder="Yes/No" id="paid"><br>
+    Payment Method:
+    <input type="text" placeholder="UPI/Card" id="method"><br>
+    <button  onclick="
+    let payment = document.getElementById('payment').value;
+    let isPaid  =document.getElementById('paid').value;
+    let method = document.getElementById('method').value;
+    checkPaymentStatus(payment,isPaid,method)
+
+    " >Check Payment Status</button>
+<script>
+    function checkPaymentStatus(amount,isPaid,paymentMethod)
+    {
+         let status;
+        if(amount<=0)
+    {
+       status = "Invalid payment amount";
+        
+    }
+    else if (isPaid==="no")
+    {
+         status = "Payment Pending";
+      
+    }
+    else if (paymentMethod==="UPI" || paymentMethod==="Card")
+    {
+        status = "Payment Successful";
+    }
+    else{
+        status = "Invalid payment method";
+    }
+    console.log("Payment Status:", status);
+  console.log("Amount:", amount);
+  console.log("Payment Method:", paymentMethod);
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 9</title>
+</head>
+<body>
+
+<h3>Task 9 – Message Intent Detection</h3>
+
+Message:
+<input type="text" id="msg" placeholder="Enter your message"><br><br>
+
+<button onclick="
+let message = document.getElementById('msg').value;
+detectIntent(message);
+">Detect Intent</button>
+
+<script>
+function detectIntent(message) {
+
+  // Validate
+  if (!message || message.trim() === "") {
+    console.log("Invalid message");
+    return;
+  }
+
+  let lowerMsg = message.toLowerCase();
+
+  // Flags
+  let isQuestion = message.includes("?");
+  let isComplaint =
+    lowerMsg.includes("problem") ||
+    lowerMsg.includes("not working");
+
+  let intent;
+
+  // Intent logic
+  if (isQuestion && isComplaint) {
+    intent = "Urgent request";
+  } 
+  else if (isComplaint) {
+    intent = "Complaint";
+  } 
+  else if (isQuestion) {
+    intent = "Question";
+  } 
+  else {
+    intent = "Other";
+  }
+
+  console.log("Original Message:", message);
+  console.log("Detected Intent:", intent);
+}
+</script>
+
+</body>
+</html>

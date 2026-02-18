@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 7</title>
+</head>
+<body>
+
+<h3>Task 7 </h3>
+
+Age:
+<input type="number" id="age" placeholder="Enter your age"><br><br>
+
+Ticket Type:
+<input type="text" id="type" placeholder="normal / priority"><br><br>
+
+Has ID:
+<input type="text" id="id" placeholder="yes / no"><br><br>
+
+<button onclick="handleCheck()">Check Eligibility</button>
+
+<script>
+function handleCheck() {
+  let age = document.getElementById('age').value;
+  let type = document.getElementById('type').value;
+  let hasId = document.getElementById('id').value;
+
+  CheckTravelEligibility(age, type, hasId);
+}
+
+function CheckTravelEligibility(age, type, hasId) {
+  age = Number(age);
+  type = type.toLowerCase();
+  hasId = hasId.toLowerCase() === "yes";
+
+  if (age <= 0) {
+    console.log("Invalid age");
+    return;
+  }
+
+  if (type !== "normal" && type !== "priority") {
+    console.log("Invalid ticket type");
+    return;
+  }
+
+  console.log("Age:", age);
+  console.log("Ticket Type:", type);
+  console.log("Has ID:", hasId);
+
+  let fare = 200;
+  if (type === "priority") fare += 50;
+
+  if (age >= 18 && hasId) {
+    console.log("Eligibility: Eligible");
+  } 
+  else if (age < 18 && type === "priority") {
+    console.log("Eligibility: Eligible with guardian");
+  } 
+  else {
+    console.log("Eligibility: Not eligible");
+  }
+
+  console.log("Fare: ₹" + fare);
+}
+</script>
+
+</body>
+</html>

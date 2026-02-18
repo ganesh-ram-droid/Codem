@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Task 1 </title>
 </head>
 <body>
-    <button onclick="login('admin')" >Admin</button>
-    <button onclick="login('user')">User</button>
-    <button onclick="login('guest')">Guest</button>
-    <div id="display">
 
-    </div>
-    <script>
-           let msg = document.getElementById("display")
-        function validateLogin(name,pass)
-        {
-            if(name==="admin"&&pass==="admin123")
-        {
-            return true
-        }
-        else if(name==="user" && pass ==="pass123")
-        {
-            return true
-        }
-        else if ( name==="guest"&& pass==="guest123") {
-            return true
-        }
-        else{
-            return false
-        }
-        }
-        function login(role)
-        {
-            let name =prompt("Enter the username:")
-            let pass = prompt("Enter the password:")
-            let message;
-            if(validateLogin(name,pass))
-        {
-            if(role==="admin")
-        {
-            message="Full access granted"
-        }
-        else if(role==="user")
-        {
-            message="Limited access granted"
-        }
-        else {
-            
-            message="Read-only access"
-        }
-        
-        }
-        else{
-            message="Invalid credentials"
-        }
-        msg.textContent=message
-     
+<h3>Login Access System</h3>
 
-        }
-    </script>
-    
+<input type="text" id="username" placeholder="Enter username">
+<br><br>
+<input type="password" id="password" placeholder="Enter password">
+<br><br>
+
+<button onclick="login('admin')">Admin</button>
+<button onclick="login('user')">User</button>
+<button onclick="login('guest')">Guest</button>
+
+<p id="display"></p>
+
+<script>
+let msg = document.getElementById("display");
+
+function validateLogin(username, password) {
+  if (username === "admin" && password === "admin123") {
+    return true;
+  } else if (username === "user" && password === "pass123") {
+    return true;
+  } else if (username === "guest" && password === "guest123") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function login(role) {
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  let message;
+
+  if (validateLogin(username, password)) {
+    if (role === "admin") {
+      message = "Full access granted";
+    } else if (role === "user") {
+      message = "Limited access granted";
+    } else {
+      message = "Read-only access";
+    }
+  } else {
+    message = "Invalid credentials";
+  }
+
+  msg.textContent = message;
+}
+</script>
+
 </body>
 </html>

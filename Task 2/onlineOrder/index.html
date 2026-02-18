@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Task 3 </title>
 </head>
 <body>
-    <button  onclick="checkOrder(true,false)" >Order Now</button>
-    <button  onclick="checkOrder(false,false)" >Order Now</button>
-    <button  onclick="checkOrder(false,true)" >Order Now</button>
-    <div id="order" ></div>
 
-    <script>
-        let msg  =document.getElementById("order")
-        function checkOrder(isPaid,inStock)
-        {
-            if(isPaid===true && inStock===true)
-        {
-            msg.textContent="Order confirmed"
-        }
-        else if(isPaid===true && inStock===false )
-        {
-            msg.textContent="Order delayed"
+<h3>Online Order Status</h3>
 
-        }
-        else if(!isPaid)
-        {
-            msg.textContent="Payment Required"
-        }
-        alert(msg.textContent)
+<label>
+  Payment Status:
+  <select id="paid">
+    <option value="">Select</option>
+    <option value="true">Paid</option>
+    <option value="false">Not Paid</option>
+  </select>
+</label>
+<br><br>
 
+<label>
+  Stock Status:
+  <select id="stock">
+    <option value="">Select</option>
+    <option value="true">In Stock</option>
+    <option value="false">Out of Stock</option>
+  </select>
+</label>
+<br><br>
 
-    }
-        
-    </script>
-    
+<button onclick="checkFromInput()">Check Order Status</button>
+
+<script>
+function checkFromInput() {
+  let isPaidValue = document.getElementById("paid").value;
+  let inStockValue = document.getElementById("stock").value;
+
+  if (isPaidValue === "" || inStockValue === "") {
+    alert("Please select all options");
+    return;
+  }
+
+  let isPaid = isPaidValue === "true";
+  let inStock = inStockValue === "true";
+
+  checkOrder(isPaid, inStock);
+}
+
+function checkOrder(isPaid, inStock) {
+  let result;
+
+  if (isPaid === true && inStock === true) {
+    result = "Order confirmed";
+  } else if (isPaid === true && inStock === false) {
+    result = "Order delayed";
+  } else {
+    result = "Payment required";
+  }
+
+  alert(result);
+}
+</script>
+
 </body>
 </html>

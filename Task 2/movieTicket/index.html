@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Ticket</title>
+  <meta charset="UTF-8">
+  <title>Task 2 </title>
 </head>
 <body>
 
-<button onclick="checkTicket(25, true)">Adult</button>
-<button onclick="askTeen()">Teen</button>
-<button onclick="checkTicket(10, true)">Child</button>
+<h3>Movie Ticket Permission</h3>
 
-<div id="display"></div>
+<input type="number" id="age" placeholder="Enter age">
+<br><br>
+
+<label>
+  <input type="checkbox" id="permission">
+  Parent Permission (for age 13–17)
+</label>
+<br><br>
+
+<button onclick="checkFromInput()">Check Ticket</button>
+
+<p id="display"></p>
 
 <script>
 let msg = document.getElementById("display");
-function checkTicket(age, hasPermission)
-{
-   //this is condition for teenage thus we need to askTeen
-    if(age >= 13 && age <= 17)
-    {
-        if(hasPermission === true)
-            msg.textContent = "Allowed";
-        else
-            msg.textContent = "Not Allowed";
-    }
-    else
-    {
-       
-        msg.textContent = "Allowed";
-    }
+
+function checkFromInput() {
+  let age = Number(document.getElementById("age").value);
+  let hasPermission = document.getElementById("permission").checked;
+  checkTicket(age, hasPermission);
 }
 
-
-function askTeen()
-{
-    let permission = confirm("Do you have parent permission?");
-    checkTicket(15, permission);
+function checkTicket(age, hasPermission) {
+  if (age >= 13 && age <= 17) {
+    if (hasPermission === true) {
+      msg.textContent = "Allowed";
+    } else {
+      msg.textContent = "Not Allowed";
+    }
+  } else {
+    msg.textContent = "Allowed";
+  }
 }
 </script>
 

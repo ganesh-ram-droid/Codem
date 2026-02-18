@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 10</title>
+</head>
+<body>
+
+<h3>Task 10</h3>
+
+<div>Password Status:</div>
+<input type="text" id="password" placeholder="valid / invalid"><br><br>
+<div>OTP Verified:</div>
+
+<input type="text" id="otp" placeholder="yes / no"><br><br>
+<div>Account Blocked:</div>
+
+<input type="text" id="blocked" placeholder="yes / no"><br><br>
+
+<button onclick="
+let passwordStatus = document.getElementById('password').value;
+let otpStatus = document.getElementById('otp').value;
+let blockStatus = document.getElementById('blocked').value;
+checkSecurity(passwordStatus, otpStatus, blockStatus);
+">Check Login</button>
+
+<script>
+function checkSecurity(passwordStatus, otpStatus, blockStatus) {
+
+  passwordStatus = passwordStatus.toLowerCase() === "valid";
+  otpStatus = otpStatus.toLowerCase() === "yes";
+  blockStatus = blockStatus.toLowerCase() === "yes";
+
+  if (passwordStatus && otpStatus && !blockStatus) {
+    console.log("Login successful");
+  } else {
+    console.log("Login failed");
+  }
+}
+</script>
+
+</body>
+</html>

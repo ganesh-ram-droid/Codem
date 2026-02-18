@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 11</title>
+</head>
+<body>
+
+<h3>Task 11</h3>
+
+Weather:
+<input type="text" id="weather" placeholder="rainy / sunny / cold"><br><br>
+
+Temperature (°C):
+<input type="number" id="temp" placeholder="Enter temperature"><br><br>
+
+<button onclick="
+let weather = document.getElementById('weather').value;
+let temp = document.getElementById('temp').value;
+adviseWeather(weather, temp);
+">Get Advice</button>
+
+<script>
+function adviseWeather(weather, temp) {
+
+  weather = weather.toLowerCase();
+  temp = Number(temp);
+
+  let advice = "";
+
+  if (weather === "rainy") {
+    advice = "Carry an umbrella";
+  } 
+  else if (weather === "sunny" && temp >= 30) {
+    advice = "Stay hydrated and avoid direct sun";
+  } 
+  else if (weather === "cold" && temp < 15) {
+    advice = "Wear warm clothes";
+  } 
+  else {
+    advice = "Have a good day!";
+  }
+
+  alert(advice);
+}
+</script>
+
+</body>
+</html>

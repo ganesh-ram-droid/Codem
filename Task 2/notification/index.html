@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 14</title>
+</head>
+<body>
+
+<h3>Task 14</h3>
+
+Message:
+<input type="text" id="msg" placeholder="Enter message"><br><br>
+
+Urgent:
+<input type="text" id="urgent" placeholder="yes / no"><br><br>
+
+<button onclick="
+let message = document.getElementById('msg').value;
+let urgent = document.getElementById('urgent').value;
+filterNotification(message, urgent);
+">Filter Notification</button>
+
+<script>
+function filterNotification(message, urgent) {
+
+  urgent = urgent.toLowerCase() === "yes";
+  let type;
+  let formattedMessage;
+
+  if (urgent || message.toLowerCase().includes("alert")) {
+    type = "Important";
+    formattedMessage = "IMPORTANT: " + message.toUpperCase();
+  } 
+  else {
+    type = "Normal";
+    formattedMessage = "INFO: " + message.toLowerCase();
+  }
+
+  console.log("Notification Type:", type);
+  console.log("Message:", formattedMessage);
+}
+</script>
+
+</body>
+</html>
